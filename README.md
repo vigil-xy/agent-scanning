@@ -1,4 +1,4 @@
-# Scanner Claw Security Scanner
+# Security Scanner
 
 **A comprehensive MCP (Model Context Protocol) security scanner for developers and startups**
 
