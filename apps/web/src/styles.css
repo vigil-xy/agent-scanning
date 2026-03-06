@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+:root {
+  --ink: #142027;
+  --ink-soft: #2e3f4a;
+  --paper: #f8f4ec;
+  --panel: rgba(255, 255, 255, 0.88);
+  --accent: #0b8a77;
+  --accent-strong: #0a6a76;
+  --warning: #b34017;
+  --line: rgba(20, 32, 39, 0.15);
+  --shadow: 0 12px 28px rgba(20, 32, 39, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% -10%, #f8bf61 0, transparent 35%),
+    radial-gradient(circle at 100% 0%, #89d8d3 0, transparent 28%),
+    linear-gradient(165deg, #fcf8ef 0%, #eaf5f4 100%);
+}
+
+.page-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.hero {
+  background: linear-gradient(130deg, rgba(11, 138, 119, 0.92), rgba(10, 106, 118, 0.9));
+  color: #f2f8f7;
+  border-radius: 1.2rem;
+  padding: 1.4rem 1.2rem;
+  box-shadow: var(--shadow);
+}
+
+.hero h1 {
+  margin: 0.3rem 0;
+  font-size: clamp(1.5rem, 3.8vw, 2.5rem);
+  line-height: 1.1;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
+.tabs {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.55rem;
+}
+
+.tab {
+  display: block;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 0.85rem;
+  color: var(--ink-soft);
+  padding: 0.65rem;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.tab small {
+  display: block;
+  font-size: 0.72rem;
+}
+
+.tab:hover {
+  transform: translateY(-2px);
+}
+
+.tab.active {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.grid.two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.panel {
+  margin-top: 1rem;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.panel.error {
+  border-color: var(--warning);
+  color: var(--warning);
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.metric .metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.metrics label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.metrics strong {
+  font-size: 1.6rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: 0.6rem;
+}
+
+input,
+select,
+button,
+pre,
+table {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+input,
+select,
+button {
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+  padding: 0.6rem;
+  background: #ffffff;
+}
+
+button {
+  background: var(--accent);
+  color: #f2f8f7;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-strong);
+}
+
+.feed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.feed li {
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  padding: 0.65rem;
+  background: #fff;
+}
+
+.feed p {
+  margin: 0.4rem 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+pre {
+  white-space: pre-wrap;
+  margin: 0;
+  max-height: 320px;
+  overflow: auto;
+  background: #f7fcfb;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  padding: 0.8rem;
+}
+
+@media (max-width: 860px) {
+  .grid.two {
+    grid-template-columns: 1fr;
+  }
+
+  .metric .metrics {
+    grid-template-columns: 1fr;
+  }
+}

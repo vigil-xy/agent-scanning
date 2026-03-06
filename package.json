@@ -1,50 +1,20 @@
 {
-  "name": "vygil",
-  "version": "0.1.0",
-  "description": "MCP security scanner - comprehensive security auditing tool for developers and startups",
-  "type": "module",
-  "main": "build/index.js",
-  "bin": {
-    "vygil": "./build/cli.js",
-    "vygil-mcp": "./build/index.js"
-  },
-  "scripts": {
-    "build": "tsc && chmod 755 build/cli.js build/index.js",
-    "start": "node build/index.js",
-    "dev": "tsc && node build/index.js"
-  },
-  "keywords": [
-    "security",
-    "scanner",
-    "vygil",
-    "cryptographic",
-    "cli",
-    "mcp",
-    "model-context-protocol",
-    "security-audit",
-    "vulnerability-scanner"
+  "name": "agent-ops-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Software-only AI agent operations platform with governance, budgets, and compliance",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
   ],
-  "author": "Vygil Security Team",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vigil-xy/vigil-mcp.git"
-  },
-  "bugs": {
-    "url": "https://github.com/vigil-xy/vigil-mcp/issues"
-  },
-  "homepage": "https://github.com/vigil-xy/vigil-mcp#readme",
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.25.3",
-    "commander": "^12.0.0",
-    "chalk": "^5.3.0",
-    "zod": "^3.24.1"
+  "scripts": {
+    "dev": "npm run dev -w @agent-ops/api",
+    "dev:api": "npm run dev -w @agent-ops/api",
+    "dev:web": "npm run dev -w @agent-ops/web",
+    "build": "npm run build -w @agent-ops/shared && npm run build -w @agent-ops/api && npm run build -w @agent-ops/web",
+    "start": "npm run start -w @agent-ops/api"
   },
   "devDependencies": {
-    "@types/node": "^22.10.5",
-    "typescript": "^5.7.3"
-  },
-  "files": [
-    "build"
-  ]
+    "typescript": "^5.8.2"
+  }
 }
