@@ -34,5 +34,9 @@ async function startServer(): Promise<void> {
 
 startServer().catch((error) => {
   console.error("Failed to start API server", error);
+  console.error("\nTroubleshooting:");
+  console.error("1) Ensure PostgreSQL is running: docker compose up -d postgres");
+  console.error("2) Ensure Docker daemon is running (Docker Desktop)");
+  console.error("3) Check DATABASE_URL in apps/api/.env");
   process.exit(1);
 });

@@ -11,10 +11,15 @@
     "dev": "npm run dev -w @agent-ops/api",
     "dev:api": "npm run dev -w @agent-ops/api",
     "dev:web": "npm run dev -w @agent-ops/web",
+    "dev:all": "concurrently -n api,web -c cyan,magenta \"npm run dev:api\" \"npm run dev:web\"",
+    "setup:local": "bash scripts/setup-local.sh",
+    "seed:demo": "bash scripts/seed-demo.sh",
+    "check:stack": "bash scripts/check-stack.sh",
     "build": "npm run build -w @agent-ops/shared && npm run build -w @agent-ops/api && npm run build -w @agent-ops/web",
     "start": "npm run start -w @agent-ops/api"
   },
   "devDependencies": {
+    "concurrently": "^9.1.2",
     "typescript": "^5.8.2"
   }
 }

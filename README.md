@@ -30,6 +30,11 @@ cp apps/api/.env.example apps/api/.env
 cp apps/web/.env.example apps/web/.env
 ```
 
+Or run one command:
+```bash
+npm run setup:local
+```
+
 **3. Run it**
 ```bash
 # Terminal 1: API
@@ -39,7 +44,62 @@ npm run dev:api
 npm run dev:web
 ```
 
+Or run both in one terminal:
+
+```bash
+npm run dev:all
+```
+
 **4. Open** http://localhost:5173
+
+### Verify Everything Is Connected
+
+```bash
+npm run check:stack
+```
+
+If API + web are running, seed demo data:
+
+```bash
+npm run seed:demo
+```
+
+---
+
+## Troubleshooting (macOS)
+
+### 1) `cp .env.example ...` fails
+
+Use the correct paths from repo root:
+
+```bash
+cp apps/api/.env.example apps/api/.env
+cp apps/web/.env.example apps/web/.env
+```
+
+### 2) `Cannot connect to the Docker daemon`
+
+- Start Docker Desktop
+- Wait until Docker says it is running
+- Retry:
+
+```bash
+docker compose up -d postgres
+```
+
+### 3) API error `ECONNREFUSED ... :5432`
+
+PostgreSQL is not reachable. Confirm:
+
+```bash
+docker compose ps
+```
+
+Then restart API:
+
+```bash
+npm run dev:api
+```
 
 ---
 
