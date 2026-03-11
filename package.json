@@ -2,6 +2,7 @@
   "name": "agent-ops-platform",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Software-only AI agent operations platform with governance, budgets, and compliance",
   "workspaces": [
     "apps/*",
@@ -15,8 +16,13 @@
     "setup:local": "bash scripts/setup-local.sh",
     "seed:demo": "bash scripts/seed-demo.sh",
     "check:stack": "bash scripts/check-stack.sh",
-    "build": "npm run build -w @agent-ops/shared && npm run build -w @agent-ops/api && npm run build -w @agent-ops/web",
+    "build:scanner": "tsc -p tsconfig.json",
+    "build": "npm run build:scanner && npm run build -w @agent-ops/shared && npm run build -w @agent-ops/api && npm run build -w @agent-ops/web",
     "start": "npm run start -w @agent-ops/api"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.18.1",
+    "commander": "^14.0.1"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",

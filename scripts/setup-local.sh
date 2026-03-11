@@ -48,8 +48,23 @@ echo "[4/5] Starting PostgreSQL via docker compose..."
 docker compose up -d postgres
 
 echo "[5/5] Waiting for PostgreSQL on localhost:5432 ..."
+
+is_pg_reachable() {
+  if command -v nc >/dev/null 2>&1; then
+    nc -z localhost 5432 >/dev/null 2>&1
+    return $?
+  fi
+
+  if command -v pg_isready >/dev/null 2>&1; then
+    pg_isready -h localhost -p 5432 >/dev/null 2>&1
+    return $?
+  fi
+
+  (echo > /dev/tcp/localhost/5432) >/dev/null 2>&1
+}
+
 for i in {1..30}; do
-  if nc -z localhost 5432 >/dev/null 2>&1; then
+  if is_pg_reachable; then
     echo "[OK] PostgreSQL is reachable"
     break
   fi
