@@ -1,4 +1,4 @@
-*Control your AI agents. Track costs. Stay compliant.*
+*Control your AI agents. Track costs. Stay compliant. open-souce*
 
 ---
 
